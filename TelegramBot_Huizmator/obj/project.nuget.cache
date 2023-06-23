@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "nJeXPz5FIheoRCKFFUleNmgPiFgxh/3y8Z9TYoe2V9kQKcsUT+aOwCsnuxhRw1xnT0cIlL5RKzGskR2bect+FA==",
+  "success": true,
+  "projectFilePath": "D:\\Git\\TelegramBot_Huizmator\\TelegramBot_Huizmator\\TelegramBot_Huizmator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Maryevs\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Maryevs\\.nuget\\packages\\telegram.bot\\19.0.0\\telegram.bot.19.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
