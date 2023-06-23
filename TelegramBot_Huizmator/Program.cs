@@ -1,8 +1,9 @@
-﻿using Telegram.Bot;
+﻿using System.Runtime.CompilerServices;
+using Telegram.Bot;
 using Telegram.Bot.Types;
 using TelegramBot_Huizmator;
 
-var client = new TelegramBotClient("token");
+var client = new TelegramBotClient("6273011124:AAGeDrdgFKSbKc7vcyGNYxtfjnqMQ9IVwbM");
 client.StartReceiving(Update, Error);
 Console.ReadLine();
 
@@ -30,12 +31,12 @@ static Task Error(ITelegramBotClient arg1, Exception arg2, CancellationToken arg
 
 string GenerateAnswer(Message message)
 {
-    if (LatinLettersChecker.ContainsLatin(message.Text))
+    if (LatinLettersChecker.Check(message.Text))
         return "WAT? Sosat, ork";
     else if (message.Text.ToLower().Contains("хохол"))
         return "Ойбой, иди нахуй";
     else if (message.Text.Contains(' ') == false && message.Text.Length > 1 && message.Text[0] != ')')
-        return Huizmator.SentenceToHuizm(message.Text);
+        return Huizmator.WordToHuizm(message.Text);
 
     return null;
 }

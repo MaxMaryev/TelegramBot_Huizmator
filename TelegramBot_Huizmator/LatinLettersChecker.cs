@@ -1,8 +1,8 @@
 ﻿namespace TelegramBot_Huizmator
 {
-    public class LatinLettersChecker
+    internal class LatinLettersChecker
     {
-        public static bool ContainsLatin(string input)
+        internal static bool Check(string input)
         {
             foreach (char c in input)
             {
