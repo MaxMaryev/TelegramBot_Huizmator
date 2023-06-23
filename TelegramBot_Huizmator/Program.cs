@@ -2,7 +2,7 @@
 using Telegram.Bot.Types;
 using TelegramBot_Huizmator;
 
-var client = new TelegramBotClient("6273011124:AAGeDrdgFKSbKc7vcyGNYxtfjnqMQ9IVwbM");
+var client = new TelegramBotClient("token");
 client.StartReceiving(Update, Error);
 Console.ReadLine();
 
