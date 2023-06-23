@@ -1,6 +1,6 @@
 ﻿using Telegram.Bot;
 using Telegram.Bot.Types;
-using TelegramBot;
+using TelegramBot_Huizmator;
 
 var client = new TelegramBotClient("6273011124:AAGeDrdgFKSbKc7vcyGNYxtfjnqMQ9IVwbM");
 client.StartReceiving(Update, Error);
@@ -15,13 +15,12 @@ async Task Update(ITelegramBotClient botClient, Update update, CancellationToken
 
     Console.WriteLine(message.Chat.FirstName + "   " + message.Text);
 
-    if (ShouldAnswer(message))
-    {
-        string answer = Huizmator.SentenceToHuizm(message.Text);
+    string answer = GenerateAnswer(message);
 
+    if (answer != null)
         await botClient.SendTextMessageAsync(message.Chat.Id, answer);
-        return;
-    }
+
+    return;
 }
 
 static Task Error(ITelegramBotClient arg1, Exception arg2, CancellationToken arg3)
@@ -29,7 +28,14 @@ static Task Error(ITelegramBotClient arg1, Exception arg2, CancellationToken arg
     throw new NotImplementedException();
 }
 
-bool ShouldAnswer(Message message)
+string GenerateAnswer(Message message)
 {
-    return message.Text.Contains(' ') == false && message.Text.Length > 1 && message.Text[0] != ')';
+    if (LatinLettersChecker.ContainsLatin(message.Text))
+        return "WAT? Sosat, ork";
+    else if (message.Text.ToLower().Contains("хохол"))
+        return "Ойбой, иди нахуй";
+    else if (message.Text.Contains(' ') == false && message.Text.Length > 1 && message.Text[0] != ')')
+        return Huizmator.SentenceToHuizm(message.Text);
+
+    return null;
 }
